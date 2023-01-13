@@ -6,6 +6,14 @@
   animation: slide-right 500ms ease-in-out;
 }
 
+.animation-hide {
+  animation: hide 500ms ease-in-out;
+}
+
+.animation-slide-up {
+  animation: slide-up 300ms ease-in-out;
+}
+
 @keyframes slide-left {
   from {
     transform: translateX(50%);
@@ -19,6 +27,31 @@
 }
 
 @keyframes slide-right {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(70px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+@keyframes hide {
   from {
     transform: translateX(0%);
     visibility: visible;
