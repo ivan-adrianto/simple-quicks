@@ -1,3 +1,27 @@
-export const CHAT_LIST_REQUEST = "CHAT_LIST_REQUEST"
-export const CHAT_LIST_SUCCESS = "CHAT_LIST_SUCCESS"
-export const CHAT_LIST_FAILURE = "CHAT_LIST_FAILURE"
+// Get chat list
+export const CHAT_LIST_REQUEST = "CHAT_LIST_REQUEST";
+export const CHAT_LIST_SUCCESS = "CHAT_LIST_SUCCESS";
+export const CHAT_LIST_FAILURE = "CHAT_LIST_FAILURE";
+
+// Get chat detail
+export const CHAT_DETAIL_REQUEST = "CHAT_DETAIL_REQUEST";
+export const CHAT_DETAIL_SUCCESS = "CHAT_DETAIL_SUCCESS";
+export const CHAT_DETAIL_FAILURE = "CHAT_DETAIL_FAILURE";
+
+// send chat
+export const SEND_CHAT_REQUEST = "SEND_CHAT_REQUEST";
+export const SEND_CHAT_SUCCESS = "SEND_CHAT_SUCCESS";
+export const SEND_CHAT_FAILURE = "SEND_CHAT_FAILURE";
+
+// delete chat
+export const DELETE_CHAT_REQUEST = "DELETE_CHAT_REQUEST";
+export const DELETE_CHAT_SUCCESS = "DELETE_CHAT_SUCCESS";
+export const DELETE_CHAT_FAILURE = "DELETE_CHAT_FAILURE";
+
+// edit chat
+export const EDIT_CHAT = "EDIT_CHAT";
+
+// common
+export const SET_ACTIVE_MENU = "SET_ACTIVE_MENU";
+export const SET_TOAST_MESSAGE = "SET_TOAST_MESSAGE";
+export const SET_TOAST_STATUS = "SET_TOAST_STATUS";

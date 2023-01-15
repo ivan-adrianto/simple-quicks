@@ -4,12 +4,17 @@ import { ReactComponent as IconChat } from "../assets/icons/icon-chat.svg";
 import { ReactComponent as IconTaskList } from "../assets/icons/icon-task-list.svg";
 import FloatingButton from "../components/FloatingButton";
 import useFirstRender from "../hooks/useFirstRender";
+import { useDispatch, useSelector } from "react-redux";
+import { setActiveMenu } from "../redux/actions/common";
 
-function MainMenu({ activeMenu, setActiveMenu }) {
+function MainMenu() {
+  const dispatch = useDispatch();
+
+  const { activeMenu } = useSelector((state) => state.common);
+
   const [showMenu, setShowMenu] = useState(false);
 
   const firstRender = useFirstRender();
-
 
   return (
     <div className={"flex gap-[26px]"}>
@@ -27,13 +32,13 @@ function MainMenu({ activeMenu, setActiveMenu }) {
             <IconTaskList fill={activeMenu === "task" ? "white" : "#F8B76B"} />
           }
           className={`${activeMenu === "task" ? "bg-orange" : "bg-white"}`}
-          onClick={() => setActiveMenu("task")}
+          onClick={() => dispatch(setActiveMenu("task"))}
           hasShadow={activeMenu === "task"}
         />
         <FloatingButton
           icon={<IconChat fill={activeMenu === "chat" ? "white" : "#8885FF"} />}
           className={`${activeMenu === "chat" ? "bg-purple" : "bg-white"}`}
-          onClick={() => setActiveMenu("chat")}
+          onClick={() => dispatch(setActiveMenu("chat"))}
           hasShadow={activeMenu === "chat"}
         />
       </div>

@@ -1,9 +1,9 @@
 import React from "react";
-function Spinner() {
+function Spinner({className}) {
   return (
     <div role="status">
       <svg
-        className="inline mr-2 w-[50px] text-grey-4 animate-spin fill-grey-3"
+        className={`inline mr-2 ${className || "w-[50px]"} text-grey-4 animate-spin fill-grey-3`}
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

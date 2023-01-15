@@ -1,18 +1,10 @@
-import React, { useEffect } from "react";
 import { ReactComponent as IconSearch } from "../assets/icons/icon-search.svg";
 import { ReactComponent as IconPerson } from "../assets/icons/icon-person.svg";
 import Spinner from "./Spinner";
-import { useDispatch, useSelector } from "react-redux";
-import { chatListRequest } from "../redux/actions/chats";
+import { useSelector } from "react-redux";
 
-function ChatList({toDetail}) {
-  const dispatch = useDispatch();
+function ChatList({ toDetail }) {
   const { data, loading } = useSelector((state) => state.chat.chatList);
-
-  useEffect(() => {
-    dispatch(chatListRequest());
-    // eslint-disable-next-line
-  }, []);
 
   const dateFormatter = (string) => {
     const options = {
@@ -22,12 +14,10 @@ function ChatList({toDetail}) {
       hour: "2-digit",
       minute: "2-digit",
     };
-    return new Date(string).toLocaleDateString("id-ID", options).replace(".", ":");
+    return new Date(string)
+      .toLocaleDateString("id-ID", options)
+      .replace(".", ":");
   };
-
-  const onClickDetail = (id) => {
-    toDetail()
-  }
 
   return (
     <div className="px-[34px] py-5 flex flex-col h-full">
@@ -48,11 +38,11 @@ function ChatList({toDetail}) {
           <p className="mt-3 font-bold">Loading Chats...</p>
         </div>
       ) : (
-        data?.slice(0, 4)?.map((item, index) => (
+        data?.map((item, index) => (
           <div
             key={index}
             className="pt-6 pb-8 border-b border-grey-2 flex justify-between items-center gap-2 cursor-pointer"
-            onClick={() => onClickDetail(item.id)}
+            onClick={() => toDetail(item)}
           >
             <div className="flex gap-[17px] ">
               <div className="relative">
@@ -78,7 +68,7 @@ function ChatList({toDetail}) {
                 <p className="text-sm">Please check this out</p>
               </div>
             </div>
-            {index === 0 && (
+            {index === 0 && !localStorage.getItem("seen-new-msg-border") && (
               <div className="rounded-full bg-red w-[10px] h-[10px]"></div>
             )}
           </div>
